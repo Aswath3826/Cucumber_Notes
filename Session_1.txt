@@ -1,0 +1,91 @@
+Cucumber
+--------------
+TDD - Test Driven Development(focus on micro level testing part)(Only Developers and Testers can understand)(Technical oriented)
+	Ex: TestNG, Junit
+
+BDD - Behavioral Driven Development(focus on the features/behaviour of the application)(it is look on the customer perspective)(Behaviour oriented)
+	Ex: Cucumber, JBehave, serinty etc...
+
+team
+----
+stake holders/customer (non-tech)
+product manager (non-tech)
+project manager - (non-tech)
+tester - tech
+developer - tech
+scrum master (non-tech)
+
+3 Files
+-------
+1) Feature file(can be understood by anyone)
+2) step definitions file
+3) test runner file(intstead of testng.xml, to run the test)
+
+Feature file
+-------------------------------
+Feature files contains different scenarios..
+
+Gherkin - language contains keywords..
+	Scenario	
+	Given
+	When
+	Then
+	And (AND is used if there are multiple keywords(GIVEN, WHEN, THEN))
+
+
+Pre-condition  - Given 
+actions   - When
+validation -- Then
+
+Login.feature
+----------------
+Feature : User login
+	Scenario: Succesful login
+		Given the user opens application
+		And  the user navigate to login page
+		When the user entered valid user name and valid password
+		And the user clicked on submit button.
+		Then the user should see My account page.
+
+----------------------------------------------------------
+
+Step definition file contains methos which are represent to steps in feature file
+
+---------------------------------------------------------------------
+
+testRunner class  ---> which feature file, where is step definition file, report etc...
+
+
+Cucumber by default uses Junit
+
+** we need to install cucumber plugin in eclipse
+
+
+
+TestRunner:
+
+package test_Runner;
+
+import org.junit.runner.RunWith;
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+					features = {".//.feature file location.."} ,
+					glue = "..step_Definitions.."//in glue we only specify package
+					)
+public class test_Run {
+
+}
+
+
+
+
+
+
+
+
+
+
